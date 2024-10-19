@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b459858320266fa47a53260ebfbbc93a, type: 3}
+  m_Name: AnchorsSkins
+  m_EditorClassIdentifier: 
+  anchor_skins:
+  - Top: {fileID: 21300000, guid: c28962fa04741c9478f7ab3848f5030e, type: 3}
+    Bottom: {fileID: 21300000, guid: e924c40e0c4fd01428af17fc103a27df, type: 3}
+    cost:
+      Coins: 0
+      Diamond: 0
+    Ad_Skin: 0
+  - Top: {fileID: 21300000, guid: c28962fa04741c9478f7ab3848f5030e, type: 3}
+    Bottom: {fileID: 21300000, guid: 3037804105cb2da4ca6d330a14b109d3, type: 3}
+    cost:
+      Coins: 1000
+      Diamond: 10
+    Ad_Skin: 0
+  - Top: {fileID: 21300000, guid: 9a7fcdc05f4b83e44ad1730cd2337e9e, type: 3}
+    Bottom: {fileID: 21300000, guid: 6ab17689f65f75b40a53633822777396, type: 3}
+    cost:
+      Coins: 1000
+      Diamond: 10
+    Ad_Skin: 0
+  - Top: {fileID: 21300000, guid: c28962fa04741c9478f7ab3848f5030e, type: 3}
+    Bottom: {fileID: 21300000, guid: aa1aeeee34ab71040bbf01938fa8ad05, type: 3}
+    cost:
+      Coins: 2500
+      Diamond: 20
+    Ad_Skin: 0
+  - Top: {fileID: 21300000, guid: a578c5b6c9d112f40b236ddb5ed484e3, type: 3}
+    Bottom: {fileID: 21300000, guid: 063bf5a783665624b8ce72659f9c0722, type: 3}
+    cost:
+      Coins: 4500
+      Diamond: 50
+    Ad_Skin: 0
+  - Top: {fileID: 21300000, guid: c8335e0af44dadd4ea51aa0363d3378d, type: 3}
+    Bottom: {fileID: 21300000, guid: 56a7e7981f07d13498960d16d8ec5498, type: 3}
+    cost:
+      Coins: 4500
+      Diamond: 50
+    Ad_Skin: 0
+  - Top: {fileID: 21300000, guid: 4ea7fd9d64674e54bad75fa6138e127f, type: 3}
+    Bottom: {fileID: 21300000, guid: 0e4e61fca4b0d50458da5640c115ca33, type: 3}
+    cost:
+      Coins: 200
+      Diamond: 0
+    Ad_Skin: 0
+  - Top: {fileID: 21300000, guid: b1249978e1ee07d4db6ae54b810e194a, type: 3}
+    Bottom: {fileID: 21300000, guid: c6561d2b6f59a8e45b8e4e7fad86f11a, type: 3}
+    cost:
+      Coins: 200
+      Diamond: 0
+    Ad_Skin: 0

@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be0d18b9f19d9f44bcfa54cf89663d2, type: 3}
+  m_Name: flagsSkins
+  m_EditorClassIdentifier: 
+  flag_skins:
+  - Cover: {fileID: 21300000, guid: 7fbbe9d0de1f3c64c94a6ecd96028b59, type: 3}
+    spriteSheet:
+    - {fileID: 21300000, guid: 7fbbe9d0de1f3c64c94a6ecd96028b59, type: 3}
+    - {fileID: 21300000, guid: e00a867b86ff82247b4228c2045ad977, type: 3}
+    - {fileID: 21300000, guid: de3189218008d8246b6818000078bcbf, type: 3}
+    - {fileID: 21300000, guid: 2614776d426042e4cb61dbe442ec5568, type: 3}
+    - {fileID: 21300000, guid: ee312e9d498c1ca4e92f4c6ad3a2c137, type: 3}
+    - {fileID: 21300000, guid: ecb834e723b6c2b4389e03f1ac801b92, type: 3}
+    - {fileID: 21300000, guid: 639f1726c8b91794c84dda567a3a1383, type: 3}
+    - {fileID: 21300000, guid: 07bd712aef1530743a6f9e8253634b92, type: 3}
+    - {fileID: 21300000, guid: d597050e12231d2439b2ab3c4c34daac, type: 3}
+    anim: {fileID: 9100000, guid: a2b8d771162413e4ababc4e6d0daaaf9, type: 2}
+    cost:
+      Coins: 0
+      Diamond: 0
+    Ad_Skin: 0
+  - Cover: {fileID: 1030748239, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    spriteSheet:
+    - {fileID: 1030748239, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    - {fileID: -1991655392, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    - {fileID: 1781115659, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    - {fileID: -214034627, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    - {fileID: -705264809, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    - {fileID: 2001469345, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    - {fileID: -1227616851, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    - {fileID: 1468855010, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    - {fileID: -1670038120, guid: 40327666dc4f4c6439b3e51fa920b719, type: 3}
+    anim: {fileID: 9100000, guid: 4ff9ba972610a6841a07a8af30f7ecf3, type: 2}
+    cost:
+      Coins: 1500
+      Diamond: 20
+    Ad_Skin: 0
+  - Cover: {fileID: 173059716, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    spriteSheet:
+    - {fileID: 173059716, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    - {fileID: -107955053, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    - {fileID: 1998663136, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    - {fileID: -1138756603, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    - {fileID: 774674817, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    - {fileID: -367769665, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    - {fileID: 733307409, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    - {fileID: 194624353, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    - {fileID: 592220082, guid: 8df0224e3603d1e40ab7d816892b66f7, type: 3}
+    anim: {fileID: 9100000, guid: 3dd59309466f5724ebaed592a7448cd9, type: 2}
+    cost:
+      Coins: 2000
+      Diamond: 35
+    Ad_Skin: 0
+  - Cover: {fileID: 834670117, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    spriteSheet:
+    - {fileID: 834670117, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    - {fileID: -2129222539, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    - {fileID: -2129923753, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    - {fileID: 639229930, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    - {fileID: 878682931, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    - {fileID: 1082468699, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    - {fileID: 1087786165, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    - {fileID: 1222525869, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    - {fileID: -1231628526, guid: 20fa10aa17a3c71478f1e8573126c9a3, type: 3}
+    anim: {fileID: 9100000, guid: 5d8d6def407e46a4bad3353bd466a6cd, type: 2}
+    cost:
+      Coins: 5500
+      Diamond: 40
+    Ad_Skin: 0
+  - Cover: {fileID: -725118068, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    spriteSheet:
+    - {fileID: -725118068, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    - {fileID: -871509569, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    - {fileID: 982815351, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    - {fileID: -379761932, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    - {fileID: -500674658, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    - {fileID: -1624440108, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    - {fileID: -1735922349, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    - {fileID: -1522073793, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    - {fileID: 1443365116, guid: e851ed48a6da02247ac90e1899b23fbb, type: 3}
+    anim: {fileID: 9100000, guid: 32197afdeb6e4244cb38b9f2ca8cd92a, type: 2}
+    cost:
+      Coins: 5500
+      Diamond: 40
+    Ad_Skin: 0
+  - Cover: {fileID: -618780101, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    spriteSheet:
+    - {fileID: -618780101, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    - {fileID: 1464609875, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    - {fileID: -1435388751, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    - {fileID: 1600636649, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    - {fileID: 1497002734, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    - {fileID: -2112657111, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    - {fileID: -1766885958, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    - {fileID: -1251634827, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    - {fileID: -1997517219, guid: a4fd7d2f626206b43b4c6e82c2316e98, type: 3}
+    anim: {fileID: 9100000, guid: d4fc223e1527ca24c84a72ea9544169a, type: 2}
+    cost:
+      Coins: 6500
+      Diamond: 45
+    Ad_Skin: 0
+  - Cover: {fileID: -1885246552, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    spriteSheet:
+    - {fileID: -1885246552, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    - {fileID: 1080563392, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    - {fileID: -754707500, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    - {fileID: 2008215630, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    - {fileID: -312118826, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    - {fileID: 868646272, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    - {fileID: -869926452, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    - {fileID: -1474947784, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    - {fileID: -729557869, guid: 3b0d6a4ad07ceb74cbffba0f0760bfd6, type: 3}
+    anim: {fileID: 9100000, guid: 377ea5ece5beeb54995cf773322d22f1, type: 2}
+    cost:
+      Coins: 1000
+      Diamond: 0
+    Ad_Skin: 0
+  - Cover: {fileID: -1980538964, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    spriteSheet:
+    - {fileID: -1980538964, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    - {fileID: 995583819, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    - {fileID: -1848078079, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    - {fileID: 1775593322, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    - {fileID: 1387260179, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    - {fileID: -1244837574, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    - {fileID: -292723626, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    - {fileID: 1936107344, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    - {fileID: 544788675, guid: c7fb8f6af62876f4484f8cd40fb6c23f, type: 3}
+    anim: {fileID: 9100000, guid: 2d33a09782c07264c8a79694c863e164, type: 2}
+    cost:
+      Coins: 1000
+      Diamond: 0
+    Ad_Skin: 0

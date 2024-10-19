@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b2f2608d3e6f5408e35e3129d3dd40, type: 3}
+  m_Name: Gifts
+  m_EditorClassIdentifier: 
+  gifts:
+  - prize:
+      Coins: 100
+      Diamond: 10
+    ad: 0
+  - prize:
+      Coins: 120
+      Diamond: 20
+    ad: 0
+  - prize:
+      Coins: 110
+      Diamond: 15
+    ad: 0
+  - prize:
+      Coins: 80
+      Diamond: 5
+    ad: 0
+  - prize:
+      Coins: 50
+      Diamond: 3
+    ad: 0
+  - prize:
+      Coins: 150
+      Diamond: 15
+    ad: 0
+  - prize:
+      Coins: 100
+      Diamond: 5
+    ad: 0
+  - prize:
+      Coins: 125
+      Diamond: 20
+    ad: 0
+  - prize:
+      Coins: 90
+      Diamond: 20
+    ad: 0
+  - prize:
+      Coins: 150
+      Diamond: 25
+    ad: 0
+  - prize:
+      Coins: 80
+      Diamond: 8
+    ad: 0
+  - prize:
+      Coins: 75
+      Diamond: 7
+    ad: 0
+  - prize:
+      Coins: 100
+      Diamond: 6
+    ad: 0
+  - prize:
+      Coins: 150
+      Diamond: 5
+    ad: 0
+  - prize:
+      Coins: 300
+      Diamond: 30
+    ad: 0
+  - prize:
+      Coins: 200
+      Diamond: 20
+    ad: 0

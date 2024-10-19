@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73241ef1061fa7d43a41b9e966101f42, type: 3}
+  m_Name: HelmSkins
+  m_EditorClassIdentifier: 
+  Helm_skins:
+  - Cover: {fileID: 21300000, guid: db88200a83eaede479e3633174e6511a, type: 3}
+    spriteSheet:
+    - {fileID: 21300000, guid: db88200a83eaede479e3633174e6511a, type: 3}
+    anim: {fileID: 9100000, guid: 6521ed93515c53c44ae3f5202f0902a5, type: 2}
+    cost:
+      Coins: 0
+      Diamond: 0
+    Ad_Skin: 0
+  - Cover: {fileID: -1044025141, guid: d981ed5893ea7554991a0e92b5d69dfb, type: 3}
+    spriteSheet:
+    - {fileID: 21300000, guid: db88200a83eaede479e3633174e6511a, type: 3}
+    anim: {fileID: 9100000, guid: 470cc3594f482af49b46ac520298d66c, type: 2}
+    cost:
+      Coins: 1000
+      Diamond: 10
+    Ad_Skin: 0
+  - Cover: {fileID: -1764548892, guid: 2badb9be897d51b4ba04fcb247d0ffd9, type: 3}
+    spriteSheet:
+    - {fileID: -1764548892, guid: 2badb9be897d51b4ba04fcb247d0ffd9, type: 3}
+    anim: {fileID: 9100000, guid: 0dbc92eef1122ae4d969639f6ead21c3, type: 2}
+    cost:
+      Coins: 1200
+      Diamond: 10
+    Ad_Skin: 0
+  - Cover: {fileID: 1134581551, guid: 80ad09b80e1576847a295d2610a89681, type: 3}
+    spriteSheet:
+    - {fileID: 1134581551, guid: 80ad09b80e1576847a295d2610a89681, type: 3}
+    anim: {fileID: 9100000, guid: 0d740ae0ed3470444838a67aaf8dc56e, type: 2}
+    cost:
+      Coins: 5000
+      Diamond: 40
+    Ad_Skin: 0
+  - Cover: {fileID: 1353381260, guid: a7a9a7f36da1ef44f8f6e8e2fa4e2886, type: 3}
+    spriteSheet:
+    - {fileID: 1353381260, guid: a7a9a7f36da1ef44f8f6e8e2fa4e2886, type: 3}
+    anim: {fileID: 9100000, guid: 48f1c443bd3f0ef43b83883d23db4351, type: 2}
+    cost:
+      Coins: 5000
+      Diamond: 40
+    Ad_Skin: 0
+  - Cover: {fileID: -585415903, guid: 019610cd186a3bb4a913e387f4e26cfb, type: 3}
+    spriteSheet:
+    - {fileID: -585415903, guid: 019610cd186a3bb4a913e387f4e26cfb, type: 3}
+    anim: {fileID: 9100000, guid: 54a77cf9f42b5de47b0c440feea999aa, type: 2}
+    cost:
+      Coins: 500
+      Diamond: 0
+    Ad_Skin: 0
+  - Cover: {fileID: -576015126, guid: 35738096f2292fa4984d8e102f8aece7, type: 3}
+    spriteSheet:
+    - {fileID: -576015126, guid: 35738096f2292fa4984d8e102f8aece7, type: 3}
+    anim: {fileID: 9100000, guid: 71fd748b1cabb874cbbdbea89b1fc98a, type: 2}
+    cost:
+      Coins: 500
+      Diamond: 0
+    Ad_Skin: 0

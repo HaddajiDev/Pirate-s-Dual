@@ -1,0 +1,186 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6780de95060d4eb7f74315ab94a71, type: 3}
+  m_Name: Bullets
+  m_EditorClassIdentifier: 
+  bullets:
+  - Name: Default
+    sr: {fileID: 21300000, guid: 6bc42d48f38e9844e948487234d58c60, type: 3}
+    Bullet_Prefab: {fileID: 6019814541299898752, guid: c028e666350cb85429e882a29b55e92d, type: 3}
+    Damage: 1
+    Limit: 0
+    cost:
+      Coins: 0
+      Diamond: 0
+    ad: 0
+  - Name: Black Tide
+    sr: {fileID: -817709417, guid: 4f6c75413d26d2d4d88872122d03bed8, type: 3}
+    Bullet_Prefab: {fileID: 1090405724521865872, guid: d4752e88292b70641ae47e5bdee77b14, type: 3}
+    Damage: 2
+    Limit: 4
+    cost:
+      Coins: 1200
+      Diamond: 35
+    ad: 0
+  - Name: BaseBall
+    sr: {fileID: 21300000, guid: 94b81eed67acb244d85c63dc4c297b9e, type: 3}
+    Bullet_Prefab: {fileID: 1090405724521865872, guid: b1743338db33bc143a28375d72040cf8, type: 3}
+    Damage: 3
+    Limit: 5
+    cost:
+      Coins: 2000
+      Diamond: 40
+    ad: 0
+  - Name: Fuse Bomb
+    sr: {fileID: -1037771827, guid: 4f6c75413d26d2d4d88872122d03bed8, type: 3}
+    Bullet_Prefab: {fileID: 1090405724521865872, guid: 6abd4347967f4a64c99b8b60c66cd944, type: 3}
+    Damage: 4
+    Limit: 3
+    cost:
+      Coins: 3000
+      Diamond: 50
+    ad: 0
+  - Name: Football
+    sr: {fileID: 21300000, guid: 86f3bb18d2daf0c43b7368d2df0d2d83, type: 3}
+    Bullet_Prefab: {fileID: 4361138654465733869, guid: 14699449870f0274f95275bdd3c64c4a, type: 3}
+    Damage: 4
+    Limit: 5
+    cost:
+      Coins: 3500
+      Diamond: 50
+    ad: 0
+  - Name: Bomb
+    sr: {fileID: 21300000, guid: 3264e437f9169aa47a1f7c61a57e057f, type: 3}
+    Bullet_Prefab: {fileID: 6019814541299898752, guid: 843be955de75f3841a5b1f7bf8d409dd, type: 3}
+    Damage: 5
+    Limit: 5
+    cost:
+      Coins: 5000
+      Diamond: 65
+    ad: 0
+  - Name: Basketball
+    sr: {fileID: 21300000, guid: 0d3c1aacd365c444cac8dee261e0c4dd, type: 3}
+    Bullet_Prefab: {fileID: 7808152115727428138, guid: 91b4bd381fed2f243bbb9533ba28522b, type: 3}
+    Damage: 5
+    Limit: 7
+    cost:
+      Coins: 6500
+      Diamond: 70
+    ad: 0
+  - Name: Skullshot
+    sr: {fileID: 21300000, guid: cbc5b53bed97ac240824a4cd25328a65, type: 3}
+    Bullet_Prefab: {fileID: 6481193929099902243, guid: 126697ec1229dcd4a8fe7aa0c6e73d7a, type: 3}
+    Damage: 5
+    Limit: 9
+    cost:
+      Coins: 7500
+      Diamond: 75
+    ad: 0
+  - Name: Brain
+    sr: {fileID: 21300000, guid: bff30d01dce638740bbf06f553582f35, type: 3}
+    Bullet_Prefab: {fileID: 4741752351585659198, guid: 7a0611304652fbc4383e58c4b37c6e11, type: 3}
+    Damage: 6
+    Limit: 3
+    cost:
+      Coins: 9500
+      Diamond: 80
+    ad: 0
+  - Name: Kiwi
+    sr: {fileID: 21300000, guid: be0c3d84e9f47c2498152c89348b934d, type: 3}
+    Bullet_Prefab: {fileID: 4630062287816619564, guid: 8dd784498dd756e498c32f5a92d8dbbc, type: 3}
+    Damage: 7
+    Limit: 3
+    cost:
+      Coins: 11500
+      Diamond: 90
+    ad: 0
+  - Name: Skull
+    sr: {fileID: 21300000, guid: ca389487c6740a74ca8272d4ade6c45a, type: 3}
+    Bullet_Prefab: {fileID: 5366126449600152223, guid: 0c0817e26f719a54eb13320bf38dede4, type: 3}
+    Damage: 8
+    Limit: 5
+    cost:
+      Coins: 13500
+      Diamond: 100
+    ad: 0
+  - Name: Banana
+    sr: {fileID: 21300000, guid: 287b81f9b00c55040a49d600316fce57, type: 3}
+    Bullet_Prefab: {fileID: 3940863881841707086, guid: 5d31791eada86ee448cd89da7c75764b, type: 3}
+    Damage: 9
+    Limit: 7
+    cost:
+      Coins: 15500
+      Diamond: 110
+    ad: 0
+  - Name: Chicken
+    sr: {fileID: 21300000, guid: c2ced2eec932a3049a61fd44b8aee363, type: 3}
+    Bullet_Prefab: {fileID: 4374450003439404253, guid: 39fa96ce922e3e149a1a5410f3c59e76, type: 3}
+    Damage: 10
+    Limit: 7
+    cost:
+      Coins: 20000
+      Diamond: 200
+    ad: 0
+  - Name: Blaze Totem
+    sr: {fileID: 21300000, guid: ed02b671495169b449cfcc881d0420b5, type: 3}
+    Bullet_Prefab: {fileID: 1443841124907473009, guid: 99255818c5580a7469e4efe35db29230, type: 3}
+    Damage: 12
+    Limit: 5
+    cost:
+      Coins: 21000
+      Diamond: 250
+    ad: 0
+  - Name: FireFang Totem
+    sr: {fileID: 21300000, guid: c50fad4f6c80ae84d8a448d968fa14c0, type: 3}
+    Bullet_Prefab: {fileID: 8251403851001080945, guid: 64dfc9a1576909b47b85aae515af08ff, type: 3}
+    Damage: 15
+    Limit: 5
+    cost:
+      Coins: 25000
+      Diamond: 300
+    ad: 0
+  - Name: Golden Skull
+    sr: {fileID: 21300000, guid: 55532ca633b885641b382d2380f0ccf2, type: 3}
+    Bullet_Prefab: {fileID: 7185717757324278756, guid: c955fb594ca51aa4ca984374ed12ff36, type: 3}
+    Damage: 20
+    Limit: 5
+    cost:
+      Coins: 30000
+      Diamond: 350
+    ad: 0
+  - Name: Panda
+    sr: {fileID: 21300000, guid: 0a8e6c51d825da446b41234ca9e1de6f, type: 3}
+    Bullet_Prefab: {fileID: 2349648784189887902, guid: dcd6f668f653d7f40934debb579faea8, type: 3}
+    Damage: 3
+    Limit: 3
+    cost:
+      Coins: 1
+      Diamond: 1
+    ad: 0
+  - Name: Clown
+    sr: {fileID: 21300000, guid: eb6319c8bad7e8a42a8fdc0d7af631a4, type: 3}
+    Bullet_Prefab: {fileID: 4900628986575912581, guid: e48559fba8b32c848b3a7aafb1dec48b, type: 3}
+    Damage: 3
+    Limit: 3
+    cost:
+      Coins: 1
+      Diamond: 1
+    ad: 0
+  - Name: Monster
+    sr: {fileID: 21300000, guid: 6c467374a884ae0418b1f427ef3693a2, type: 3}
+    Bullet_Prefab: {fileID: 7995725857277514041, guid: 2e9d00c57ecd6c046bcf1afec7e102af, type: 3}
+    Damage: 3
+    Limit: 3
+    cost:
+      Coins: 1
+      Diamond: 1
+    ad: 0

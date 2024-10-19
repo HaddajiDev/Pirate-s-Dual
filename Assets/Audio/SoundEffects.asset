@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1e733c5fada3940b2e5b95702c41d3, type: 3}
+  m_Name: SoundEffects
+  m_EditorClassIdentifier: 
+  MainMenu: {fileID: 8300000, guid: ed9c330fed6d4d44dbd0ee9bb0ee7f8e, type: 3}
+  BattleMusic: {fileID: 8300000, guid: 039990088bd19a9478653dd3447b10b6, type: 3}
+  CrackSounds: {fileID: 8300000, guid: 01ca5a3d257b29d4bafa62fcc0906740, type: 3}
+  ShipCrash: {fileID: 8300000, guid: dc1d162fbb9810842974862431becaa9, type: 3}
+  Buy: {fileID: 8300000, guid: 9762b523a13fdcd4e99e8ae25b1a6d62, type: 3}
+  Laugh: {fileID: 8300000, guid: 338a62cc29ef3df46b04f0b25bdb609a, type: 3}
+  Loose: {fileID: 8300000, guid: 1dde59b4adf96614da5e48abc7c6fd96, type: 3}
+  AhoyMatey: {fileID: 8300000, guid: af21803f36041744682c360c044f9387, type: 3}
+  Ohoy: {fileID: 8300000, guid: 07c256c72c90f824ea001bf3f0454103, type: 3}
+  ScallyWags: {fileID: 8300000, guid: 32e409c2c258de841b7f25ce9b3f1726, type: 3}
+  AbondShip: {fileID: 8300000, guid: a38cb81fea4e9d04a8993c48bb9d2f2e, type: 3}
+  Fire:
+  - {fileID: 8300000, guid: d77130522443c2741be4388f32174eaa, type: 3}
+  - {fileID: 8300000, guid: bdfb800254ea3a84d87b57ff52b21968, type: 3}
+  getHit:
+  - {fileID: 8300000, guid: 59435dfcbef894643b7d5ea5b993fb82, type: 3}
+  - {fileID: 8300000, guid: d58cdbd3f34ee544abd1cb2330bc6e91, type: 3}
+  hit:
+  - {fileID: 8300000, guid: 3143db9012fce4343abe97d9fa5cd0cd, type: 3}
+  - {fileID: 8300000, guid: a0886f2a0c2e1b447a59e7ad1b206208, type: 3}
+  - {fileID: 8300000, guid: c32db7cf68fd90241a4e5ba87b0c31ef, type: 3}
+  FreezeSound: {fileID: 8300000, guid: 96709893f33bbd446922fce02e466469, type: 3}
+  ShrinkSound: {fileID: 8300000, guid: fe0616eb20a5944479783bc91e9f3700, type: 3}
+  SheildSound: {fileID: 8300000, guid: ee3c05abde29da0428d265021488d8d3, type: 3}
+  Shoot: {fileID: 8300000, guid: 5ff823f546b52574a931e1d9b44290a6, type: 3}
+  Explode: {fileID: 8300000, guid: 0581b38c513d18746a00d1d6528554a9, type: 3}
+  Hover: {fileID: 8300000, guid: cf11a934967b23340a4d22619832082c, type: 3}

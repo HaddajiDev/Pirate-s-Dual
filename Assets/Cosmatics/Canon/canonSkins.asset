@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f99ddb0f9b63c4abe01dec96d67012, type: 3}
+  m_Name: canonSkins
+  m_EditorClassIdentifier: 
+  canonCosmatics:
+  - Cover: {fileID: -1922706855, guid: fe68f66e06bb62b4489f049230dd7c0f, type: 3}
+    spriteSheet:
+    - {fileID: -1922706855, guid: fe68f66e06bb62b4489f049230dd7c0f, type: 3}
+    anim: {fileID: 9100000, guid: a8538bd6f7e8ee942b612cd4444045c3, type: 2}
+    cost:
+      Coins: 0
+      Diamond: 0
+    Ad_Skin: 0
+    Stand: {fileID: 314932610, guid: fe68f66e06bb62b4489f049230dd7c0f, type: 3}
+  - Cover: {fileID: -749635874, guid: 0c96feed625019a4ea0f7f1cc3f54a6d, type: 3}
+    spriteSheet:
+    - {fileID: -749635874, guid: 0c96feed625019a4ea0f7f1cc3f54a6d, type: 3}
+    anim: {fileID: 9100000, guid: 3c8af5a1d21c59240b4403ade98323ee, type: 2}
+    cost:
+      Coins: 1500
+      Diamond: 15
+    Ad_Skin: 0
+    Stand: {fileID: 1359845326, guid: 4d8866fe8d098d048bda4534809a5508, type: 3}
+  - Cover: {fileID: -769061113, guid: 63b0f6c1b9a9947498b8244377b8b91c, type: 3}
+    spriteSheet:
+    - {fileID: -769061113, guid: 63b0f6c1b9a9947498b8244377b8b91c, type: 3}
+    anim: {fileID: 9100000, guid: 09c7f1350e57ae241b25fd26da42e4dd, type: 2}
+    cost:
+      Coins: 200
+      Diamond: 0
+    Ad_Skin: 0
+    Stand: {fileID: 481385791, guid: 2d60f624b7d107a4980640684c83e6f4, type: 3}
+  - Cover: {fileID: -1413405293, guid: 3b4d95ac781cc764eba22607c2d307cd, type: 3}
+    spriteSheet:
+    - {fileID: -1413405293, guid: 3b4d95ac781cc764eba22607c2d307cd, type: 3}
+    anim: {fileID: 9100000, guid: 781aa49242a8db6489b6e14cd5322a84, type: 2}
+    cost:
+      Coins: 200
+      Diamond: 0
+    Ad_Skin: 0
+    Stand: {fileID: -786237593, guid: fdbd73f293a9918489843d90dd4e9a67, type: 3}
