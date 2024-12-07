@@ -45,7 +45,7 @@ public class NPC_s : MonoBehaviour
     public int hit = 0;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Respawn" || collision.gameObject.tag == "Bullet")
+        if(collision.gameObject.CompareTag("Respawn")|| collision.gameObject.CompareTag("Bullet"))
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             Instantiate(Ship.Instance.Explode_Effect, transform.position, Quaternion.identity);

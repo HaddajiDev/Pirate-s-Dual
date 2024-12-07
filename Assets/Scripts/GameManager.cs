@@ -1059,7 +1059,7 @@ public class GameManager : MonoBehaviour
         else if(DiaSkipped == 1)
         {
             StopAllCoroutines();
-            StartCoroutine(TypeSentence("You’ve got the spirit of a true pirate, and today we’ll see if you have the skill!"));
+            StartCoroutine(TypeSentence("Youï¿½ve got the spirit of a true pirate, and today weï¿½ll see if you have the skill!"));
             PlayAudio(Soundeffects.Ohoy);
         }            
         else if(DiaSkipped == 2)
@@ -1192,6 +1192,10 @@ public class GameManager : MonoBehaviour
         Application.OpenURL("https://www.iconfinder.com/");
     }
 
+    public void GitHub()
+    {
+        Application.OpenURL("https://github.com/HaddajiDev/Pirate-s-Dual");
+    }
 
     public void SetVolume(int index)
     {

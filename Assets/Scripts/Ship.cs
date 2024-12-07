@@ -131,10 +131,11 @@ public class Ship : MonoBehaviour
             }
             
             
-            //Coins
+            //Coins (Damage)
             if (!player)
             {
-                GameManager.Instance.Coins += Random.value < 0.85f ? Random.Range(15, 21) : Random.Range(40, 61);
+                GameManager.Instance.Coins += Random.value < 0.85f ? Random.Range(50, 81) * (GameManager.Instance.Current_Level / 2)
+                    : Random.Range(40, 61) * (GameManager.Instance.Current_Level / 2);
                 GameManager.Instance.TotalShotsHit++;
                 GameManager.Instance.SaveData("totalShotsHit", GameManager.Instance.TotalShotsHit);
                 GameManager.Instance.PlayAudio(GameManager.Instance.Soundeffects.hit[Random.Range(0, GameManager.Instance.Soundeffects.hit.Length)]);                
@@ -155,10 +156,10 @@ public class Ship : MonoBehaviour
             HealthBar_Player.DOFade(1, 0.5f);
             Slider slider = HealthBar_Player.GetComponentInChildren<Slider>();
             slider.value = Current_Health;
+            
             if (Current_Health <= 0)
             {
                 gameObject.SetActive(false);
-                GameManager.Instance.Coins += player ? 0 : Random.Range(50, 81);
                 if (player)
                 {
                     UI_Controller.instance.Getting_Ready_Object.gameObject.SetActive(false);
@@ -196,7 +197,6 @@ public class Ship : MonoBehaviour
             if (Current_Health <= 0)
             {
                 gameObject.SetActive(false);
-                GameManager.Instance.Coins += player ? 0 : Random.Range(50, 81);
                 if (player)
                 {
                     UI_Controller.instance.Getting_Ready_Object.gameObject.SetActive(false);
@@ -227,17 +227,20 @@ public class Ship : MonoBehaviour
     void Win_Obj_Win()
     {
         UI_Controller.instance.Win_Tigger(1, "You Win");
-        UI_Controller.instance.Coins_text.text = (GameManager.Instance.Coins - GameManager.Instance.Coins_Start).ToString();
         GameManager.Instance.phase = GameManager.GamePhase.GameOver;
 
         //some gems
-        int value = Random.Range(0, 3) == 2 ? Random.Range(1, 11) : 0;
+        int value = Random.Range(0, 3) == 2 ? Random.Range(3, 21) : 0;
         
-
+        //more coins
+        GameManager.Instance.Coins += Random.Range(50, 81) * (GameManager.Instance.Current_Level / 2);
+        UI_Controller.instance.Coins_text.text = (GameManager.Instance.Coins - GameManager.Instance.Coins_Start).ToString();
+        
+        
         if(GameManager.Instance.Current_Level < GameManager.Instance.player_2.levels.Get_Lenght - 1)
         {
             GameManager.Instance.Current_Level++;
-            GameManager.Instance.SaveData("level", GameManager.Instance.Current_Level);            
+            GameManager.Instance.SaveData("level", GameManager.Instance.Current_Level);
         }
         //Quests
         GameManager.Instance.WinCount++;
