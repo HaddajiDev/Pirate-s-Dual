@@ -233,7 +233,14 @@ public class Ship : MonoBehaviour
         int value = Random.Range(0, 3) == 2 ? Random.Range(3, 21) : 0;
         
         //more coins
-        GameManager.Instance.Coins += Random.Range(50, 81) * (GameManager.Instance.Current_Level / 2);
+        if (GameManager.Instance.Current_Level < 0)
+        {
+            GameManager.Instance.Coins += Random.Range(50, 81) * (GameManager.Instance.Current_Level / 2);
+        }
+        else
+        {
+            GameManager.Instance.Coins += Random.Range(40, 61);
+        }
         UI_Controller.instance.Coins_text.text = (GameManager.Instance.Coins - GameManager.Instance.Coins_Start).ToString();
         
         
