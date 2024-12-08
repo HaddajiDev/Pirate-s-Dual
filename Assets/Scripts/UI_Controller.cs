@@ -29,6 +29,7 @@ public class UI_Controller : MonoBehaviour
     public CanvasGroup Settings;
     public CanvasGroup Credits;
     public CanvasGroup Help;
+    public CanvasGroup Pause;
 
     [Header("Select Bullet UI")]
     public Button Select_Bullet_1;
@@ -568,6 +569,25 @@ public class UI_Controller : MonoBehaviour
             });
             Help.interactable = false;
             Help.blocksRaycasts = false;
+        }
+    }
+    
+    public void Pause_Controller(int index)
+    {
+        if (index == 1)
+        {
+            Pause.gameObject.SetActive(true);
+            Pause.interactable = true;
+            Pause.blocksRaycasts = true;
+            Pause.DOFade(1, 0.3f);
+        }
+        else
+        {
+            Pause.DOFade(0, 0.3f).OnComplete(() => {                
+                Pause.gameObject.SetActive(false);
+            });
+            Pause.interactable = false;
+            Pause.blocksRaycasts = false;
         }
     }
 

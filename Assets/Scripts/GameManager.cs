@@ -164,6 +164,18 @@ public class GameManager : MonoBehaviour
         phase = GamePhase.MainMenu;        
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !UI_Controller.instance.Pause.gameObject.activeInHierarchy)
+        {
+            UI_Controller.instance.Pause_Controller(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && UI_Controller.instance.Pause.gameObject.activeInHierarchy)
+        {
+            UI_Controller.instance.Pause_Controller(0);
+        }
+    }
+
     public void Play()
     {
         UI_Controller.instance.Menu_BG.interactable = true;
@@ -1195,6 +1207,11 @@ public class GameManager : MonoBehaviour
     public void GitHub()
     {
         Application.OpenURL("https://github.com/HaddajiDev/Pirate-s-Dual");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     public void SetVolume(int index)
