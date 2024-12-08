@@ -48,7 +48,7 @@ public class Shop : MonoBehaviour
 
             //audio
             GameManager.Instance.PlayAudio(GameManager.Instance.Soundeffects.Buy);
-            UI_Controller.instance.FeedBackPopUp("Arrr, matey! Ye’ve unlocked a new cannon shot for yer arsenal!", UI_Controller.FeedbackType.succes);
+            UI_Controller.instance.FeedBackPopUp("Arrr, matey! You've unlocked a new cannon shot for yer arsenal!", UI_Controller.FeedbackType.succes);
         }
         else
         {

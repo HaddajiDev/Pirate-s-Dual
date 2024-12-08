@@ -1071,7 +1071,7 @@ public class GameManager : MonoBehaviour
         else if(DiaSkipped == 1)
         {
             StopAllCoroutines();
-            StartCoroutine(TypeSentence("You�ve got the spirit of a true pirate, and today we�ll see if you have the skill!"));
+            StartCoroutine(TypeSentence("You've got the spirit of a true pirate, and today we�ll see if you have the skill!"));
             PlayAudio(Soundeffects.Ohoy);
         }            
         else if(DiaSkipped == 2)
