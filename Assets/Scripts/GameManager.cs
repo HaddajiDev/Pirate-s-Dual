@@ -8,6 +8,7 @@ using System.Linq;
 using System;
 using System.Collections;
 using UnityEngine.UI;
+using Random = Unity.Mathematics.Random;
 
 ///<summary>
 ///
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
     [Header("Abilities usage")]
     public int Fire_Uses;
     public int Burst_Uses;
+    public int Fire_Limit = 2;
+    public int Burst_Limit = 2;
 
     [Header("Power Ups")]
     [Header("Sheild")]
@@ -114,6 +117,14 @@ public class GameManager : MonoBehaviour
 
 
     int first;
+    
+    [Header("Skins")]
+    public ShipCosmaticData shipCosmatic;
+    public CanonSkins CannonCosmatic;
+    public SailCosmaticData sailCosmatic;
+    public HelmCosmaticData helmCosmatic;
+    public FlagCosmaticData flagCosmatic;
+    public AnchorCosmaticData anchorCosmatic;
     
 
     [Header("Tutoriols")]
@@ -313,13 +324,19 @@ public class GameManager : MonoBehaviour
 
     void Check_Abilites()
     {
-        if (Fire_Uses == 0)
+        if (Fire_Uses == 0 || Fire_Limit == 0)
+        {
+            player_1.inFire = false;
             UI_Controller.instance.Fire_Object.SetActive(false);
+        }
         else
             UI_Controller.instance.Fire_Object.SetActive(true);
 
-        if (Burst_Uses == 0)
+        if (Burst_Uses == 0 || Burst_Limit == 0)
+        {
+            player_1.burstCount = 1;
             UI_Controller.instance.Burst_Object.SetActive(false);
+        }
         else
             UI_Controller.instance.Burst_Object.SetActive(true);
     }
@@ -535,6 +552,8 @@ public class GameManager : MonoBehaviour
         player_1.SelectBullet(0);
         player_1.ready = false;
         player_1._bulletsLimit.Clear();
+        Fire_Limit = Upgrades.instance.level_power + 1;
+        Burst_Limit = Upgrades.instance.level_power + 1;
     }
 
 
@@ -689,161 +708,298 @@ public class GameManager : MonoBehaviour
         }
         return Quest.Type.none;
     }
-
-
-   
-    void setDefaultData()
+    
+    public Cost getSkinCost(int part, int value)
     {
-        
-            PlayerPrefs.SetFloat("force", player_1.maxForce);
-            PlayerPrefs.SetInt("health", Ships[0].GetComponent<Ship>().Health);
+        if(part == 1) return shipCosmatic.Get_Skin(value).cost;
+        else if(part == 2) return CannonCosmatic.Get_Skin(value).cost;
+        else if(part == 3) return anchorCosmatic.Get_Skin(value).cost;
+        else if(part == 4) return sailCosmatic.Get_Skin(value).cost;
+        else if(part == 5) return flagCosmatic.Get_Skin(value).cost;
+        else if(part == 6) return helmCosmatic.Get_Skin(value).cost;
+        return null;
+    }
 
-            PlayerPrefs.SetInt("extraSlot", shop.Got_Extra_Slot);
+    public Sprite GetIconSkin(int part, int value)
+    {
+        if(part == 1) return shipCosmatic.Get_Skin(value).spriteSheet[0];
+        else if(part == 2) return CannonCosmatic.Get_Skin(value).spriteSheet[0];
+        else if(part == 3) return anchorCosmatic.Get_Skin(value).Bottom;
+        else if(part == 4) return sailCosmatic.Get_Skin(value).spriteSheet[0];
+        else if(part == 5) return flagCosmatic.Get_Skin(value).spriteSheet[0];
+        else if(part == 6) return helmCosmatic.Get_Skin(value).spriteSheet[0];
+        return null;
+    }
+    public void AddCoins(int value)
+    {
+        Coins += value;
+        UI_Controller.instance.SetCurrencyUI();
+        SaveData("coins", Coins);
+    }
+    
+    public (int, int, Cost) DropRewards() // (part, index, cost) cost is null when player do not own the skin
+    {
+        bool reward = RussianRoullet(0.01f); // 0.01f
+        if (reward)
+        {
+            int part = UnityEngine.Random.Range(1, 7);
+            int index = -1;
+            Cost cost = null;
+            
+            if (part == 1) // ship
+            {
+                index = UnityEngine.Random.Range(1, shipCosmatic.Get_Lenght);
+                if (shop.skins.Check_Skin(shop.skins.Ships_Skins, index))
+                {
+                    cost = getSkinCost(part, index);
+                    AddCoins(cost.Coins);
+                }
+                else
+                {
+                    shop.skins.Add_Skin(shop.skins.Ships_Skins, index);
+                    GameManager.Instance.SaveData("ship_skins", shop.skins.Cannon_Skins);
+                }
+            }
+            else if (part == 2) // cannon
+            {
+                index = UnityEngine.Random.Range(1, CannonCosmatic.GetLength);
+                if (shop.skins.Check_Skin(shop.skins.Cannon_Skins, index))
+                {
+                    cost = getSkinCost(part, index);
+                    AddCoins(cost.Coins);
+                }
+                else
+                {
+                    shop.skins.Add_Skin(shop.skins.Cannon_Skins, index);
+                    GameManager.Instance.SaveData("cannon_skins", shop.skins.Cannon_Skins);
+                }
+            }
+            else if (part == 3) // anchors
+            {
+                index = UnityEngine.Random.Range(1, anchorCosmatic.Get_Lenght);
+                if (shop.skins.Check_Skin(shop.skins.Anchors_Skins, index))
+                {
+                    cost = getSkinCost(part, index);
+                    AddCoins(cost.Coins);
+                }
+                else
+                {
+                    shop.skins.Add_Skin(shop.skins.Anchors_Skins, index);
+                    GameManager.Instance.SaveData("anchor_skins", shop.skins.Cannon_Skins);
+                }
+            }
+            else if (part == 4) // sail
+            {
+                index = UnityEngine.Random.Range(1, sailCosmatic.Get_Lenght);
+                if (shop.skins.Check_Skin(shop.skins.Sail_Skins, index))
+                {
+                    cost = getSkinCost(part, index);
+                    AddCoins(cost.Coins);
+                }
+                else
+                {
+                    shop.skins.Add_Skin(shop.skins.Sail_Skins, index);
+                    GameManager.Instance.SaveData("sail_skins", shop.skins.Cannon_Skins);
+                }
+            }
+            else if (part == 5) // flag
+            {
+                index = UnityEngine.Random.Range(1, flagCosmatic.Get_Lenght);
+                if (shop.skins.Check_Skin(shop.skins.Flag_Skins, index))
+                {
+                    cost = getSkinCost(part, index);
+                    AddCoins(cost.Coins);
+                }
+                else
+                {
+                    shop.skins.Add_Skin(shop.skins.Flag_Skins, index);
+                    GameManager.Instance.SaveData("flag_skins", shop.skins.Cannon_Skins);
+                }
+            }
+            else if (part == 6) // helm
+            {
+                index = UnityEngine.Random.Range(1, helmCosmatic.Get_Lenght);
+                if (shop.skins.Check_Skin(shop.skins.Helm_Skins, index))
+                {
+                    cost = getSkinCost(part, index);
+                    AddCoins(cost.Coins);
+                }
+                else
+                {
+                    shop.skins.Add_Skin(shop.skins.Helm_Skins, index);
+                    GameManager.Instance.SaveData("helm_skins", shop.skins.Helm_Skins);
+                }
+            }
+            return (part, index, cost);
+        }
+        return (0, 0, null);
+    }
+    
+    public bool RussianRoullet(float chance)
+    {
+        float randomValue = UnityEngine.Random.value; 
 
-            PlayerPrefs.SetInt("slot1", uI_Controller.bullet_slot_1.GetComponent<Bullet_Slot>().index);
-            PlayerPrefs.SetInt("slot2", uI_Controller.bullet_slot_2.GetComponent<Bullet_Slot>().index);
-            PlayerPrefs.SetInt("slotExtra", uI_Controller.bullet_slot_Extra.GetComponent<Bullet_Slot>().index);
+        if (randomValue <= chance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    void setDefaultData()
+    { 
+        PlayerPrefs.SetFloat("force", player_1.maxForce);
+        PlayerPrefs.SetInt("health", Ships[0].GetComponent<Ship>().Health);
 
-            PlayerPrefs.SetInt("level", Current_Level);
+        PlayerPrefs.SetInt("extraSlot", shop.Got_Extra_Slot);
 
-            PlayerPrefs.SetInt("coins", Coins);
-            PlayerPrefs.SetInt("diamond", Diamond);
+        PlayerPrefs.SetInt("slot1", uI_Controller.bullet_slot_1.GetComponent<Bullet_Slot>().index);
+        PlayerPrefs.SetInt("slot2", uI_Controller.bullet_slot_2.GetComponent<Bullet_Slot>().index);
+        PlayerPrefs.SetInt("slotExtra", uI_Controller.bullet_slot_Extra.GetComponent<Bullet_Slot>().index);
 
-            PlayerPrefs.SetInt("fireUses", Fire_Uses);
-            PlayerPrefs.SetInt("burstUses", Burst_Uses);
+        PlayerPrefs.SetInt("level", Current_Level);
 
-            PlayerPrefs.SetInt("levelHealth", upgrades.lvl_health);
-            PlayerPrefs.SetInt("levelForce", upgrades.lvl_force);
+        PlayerPrefs.SetInt("coins", Coins);
+        PlayerPrefs.SetInt("diamond", Diamond);
 
-            //acountStuff
-            PlayerPrefs.SetString("username", "");
-            PlayerPrefs.SetString("imgUrl", "");
-            PlayerPrefs.SetString("token", "");
+        PlayerPrefs.SetInt("fireUses", Fire_Uses);
+        PlayerPrefs.SetInt("burstUses", Burst_Uses);
 
-            PlayerPrefs.SetInt("totalWins", 0);
-            PlayerPrefs.SetInt("totalLost", 0);
-            PlayerPrefs.SetInt("totalShotsFired", 0);
-            PlayerPrefs.SetInt("fireShotsHit", 0);
-            PlayerPrefs.SetInt("totalShotsHit", 0);
-            PlayerPrefs.SetInt("totalShotsMiss", 0);
+        PlayerPrefs.SetInt("levelHealth", upgrades.lvl_health);
+        PlayerPrefs.SetInt("levelForce", upgrades.lvl_force);
+        PlayerPrefs.SetInt("levelpower", 1);
 
-            //player bullets
-            SetList("bullets", shop.bullets.data);
+        //acountStuff
+        PlayerPrefs.SetString("username", "");
+        PlayerPrefs.SetString("imgUrl", "");
+        PlayerPrefs.SetString("token", "");
 
-            //skins
-            SetList("ship_skins", shop.skins.Ships_Skins);
-            SetList("sail_skins", shop.skins.Sail_Skins);
-            SetList("flag_skins", shop.skins.Flag_Skins);
-            SetList("cannon_skins", shop.skins.Cannon_Skins);
-            SetList("anchor_skins", shop.skins.Anchors_Skins);
-            SetList("helm_skins", shop.skins.Helm_Skins);
+        PlayerPrefs.SetInt("totalWins", 0);
+        PlayerPrefs.SetInt("totalLost", 0);
+        PlayerPrefs.SetInt("totalShotsFired", 0);
+        PlayerPrefs.SetInt("fireShotsHit", 0);
+        PlayerPrefs.SetInt("totalShotsHit", 0);
+        PlayerPrefs.SetInt("totalShotsMiss", 0);
 
-            //selected skin
-            PlayerPrefs.SetInt("select_skin_ship", player_1._selectedShip);
-            PlayerPrefs.SetInt("select_skin_sail", player_1._selectedSail);
-            PlayerPrefs.SetInt("select_skin_flag", player_1._selectedFlag);
-            PlayerPrefs.SetInt("select_skin_cannon", player_1._selectedCannon);
-            PlayerPrefs.SetInt("select_skin_anchor", player_1._selectedAnchor);
-            PlayerPrefs.SetInt("select_skin_helm", player_1._selectedHelm);
+        //player bullets
+        SetList("bullets", shop.bullets.data);
 
-            SaveLastLogin();
+        //skins
+        SetList("ship_skins", shop.skins.Ships_Skins);
+        SetList("sail_skins", shop.skins.Sail_Skins);
+        SetList("flag_skins", shop.skins.Flag_Skins);
+        SetList("cannon_skins", shop.skins.Cannon_Skins);
+        SetList("anchor_skins", shop.skins.Anchors_Skins);
+        SetList("helm_skins", shop.skins.Helm_Skins);
 
-            //current Quests
-            GenerateQuests();
-            SetList("current_Quests", currentQuests);
+        //selected skin
+        PlayerPrefs.SetInt("select_skin_ship", player_1._selectedShip);
+        PlayerPrefs.SetInt("select_skin_sail", player_1._selectedSail);
+        PlayerPrefs.SetInt("select_skin_flag", player_1._selectedFlag);
+        PlayerPrefs.SetInt("select_skin_cannon", player_1._selectedCannon);
+        PlayerPrefs.SetInt("select_skin_anchor", player_1._selectedAnchor);
+        PlayerPrefs.SetInt("select_skin_helm", player_1._selectedHelm);
 
-            //gifts
-            GenerateGifts();
-            SetList("current_Gifts", currentGifts);
+        SaveLastLogin();
 
-            //power ups
-            PlayerPrefs.SetInt("freeze", Freez_count);
-            PlayerPrefs.SetInt("tinyShots", TinyShots_count);
-            PlayerPrefs.SetInt("shield", Sheild_count);
-            PlayerPrefs.SetInt("tinyShip", TinyShip_count);
+        //current Quests
+        GenerateQuests();
+        SetList("current_Quests", currentQuests);
 
-            //tut
-            PlayerPrefs.SetInt("tut", tut);
+        //gifts
+        GenerateGifts();
+        SetList("current_Gifts", currentGifts);
 
-            //Audio
-            PlayerPrefs.SetFloat("music", MusicVolume);
-            PlayerPrefs.SetFloat("sound", SoundVolume);
+        //power ups
+        PlayerPrefs.SetInt("freeze", Freez_count);
+        PlayerPrefs.SetInt("tinyShots", TinyShots_count);
+        PlayerPrefs.SetInt("shield", Sheild_count);
+        PlayerPrefs.SetInt("tinyShip", TinyShip_count);
 
-            //end
-            PlayerPrefs.SetInt("end", end);                
+        //tut
+        PlayerPrefs.SetInt("tut", tut);
+
+        //Audio
+        PlayerPrefs.SetFloat("music", MusicVolume);
+        PlayerPrefs.SetFloat("sound", SoundVolume);
+
+        //end
+        PlayerPrefs.SetInt("end", end);
     }
 
     void LoadData()
     {
         
-            player_1.maxForce = PlayerPrefs.GetFloat("force");
-            Ships[0].GetComponent<Ship>().Health = PlayerPrefs.GetInt("health");
+        player_1.maxForce = PlayerPrefs.GetFloat("force");
+        Ships[0].GetComponent<Ship>().Health = PlayerPrefs.GetInt("health");
 
-            shop.Got_Extra_Slot = PlayerPrefs.GetInt("extraSlot");
+        shop.Got_Extra_Slot = PlayerPrefs.GetInt("extraSlot");
 
-            uI_Controller.bullet_slot_1.GetComponent<Bullet_Slot>().index = PlayerPrefs.GetInt("slot1");
-            uI_Controller.bullet_slot_2.GetComponent<Bullet_Slot>().index = PlayerPrefs.GetInt("slot2");
-            uI_Controller.bullet_slot_Extra.GetComponent<Bullet_Slot>().index = PlayerPrefs.GetInt("slotExtra");
+        uI_Controller.bullet_slot_1.GetComponent<Bullet_Slot>().index = PlayerPrefs.GetInt("slot1");
+        uI_Controller.bullet_slot_2.GetComponent<Bullet_Slot>().index = PlayerPrefs.GetInt("slot2");
+        uI_Controller.bullet_slot_Extra.GetComponent<Bullet_Slot>().index = PlayerPrefs.GetInt("slotExtra");
 
-            Current_Level = PlayerPrefs.GetInt("level");
+        Current_Level = PlayerPrefs.GetInt("level");
 
-            Coins = PlayerPrefs.GetInt("coins");
-            Diamond = PlayerPrefs.GetInt("diamond");
+        Coins = PlayerPrefs.GetInt("coins");
+        Diamond = PlayerPrefs.GetInt("diamond");
 
-            Fire_Uses = PlayerPrefs.GetInt("fireUses");
-            Burst_Uses = PlayerPrefs.GetInt("burstUses");
+        Fire_Uses = PlayerPrefs.GetInt("fireUses");
+        Burst_Uses = PlayerPrefs.GetInt("burstUses");
 
-            upgrades.lvl_health = PlayerPrefs.GetInt("levelHealth");
-            upgrades.lvl_force = PlayerPrefs.GetInt("levelForce");
-
-
-            totalMatchWin = PlayerPrefs.GetInt("totalWins");
-            totalMatchLost = PlayerPrefs.GetInt("totalLost");
-            TotalShotsFired = PlayerPrefs.GetInt("totalShotsFired");
-            FireShotsHit = PlayerPrefs.GetInt("fireShotsHit");
-            TotalShotsHit = PlayerPrefs.GetInt("totalShotsHit");
-            TotalShotsMiss = PlayerPrefs.GetInt("totalShotsMiss");
-
-            //Player Bullets
-            LoadList("bullets", shop.bullets.data);
-
-            //skins
-            LoadList("ship_skins", shop.skins.Ships_Skins);
-            LoadList("sail_skins", shop.skins.Sail_Skins);
-            LoadList("flag_skins", shop.skins.Flag_Skins);
-            LoadList("cannon_skins", shop.skins.Cannon_Skins);
-            LoadList("anchor_skins", shop.skins.Anchors_Skins);
-            LoadList("helm_skins", shop.skins.Helm_Skins);
+        upgrades.lvl_health = PlayerPrefs.GetInt("levelHealth");
+        upgrades.lvl_force = PlayerPrefs.GetInt("levelForce");
+        upgrades.level_power = PlayerPrefs.GetInt("levelpower");
 
 
-            //selected skins
-            player_1._selectedShip = PlayerPrefs.GetInt("select_skin_ship");
-            player_1._selectedSail = PlayerPrefs.GetInt("select_skin_sail");
-            player_1._selectedFlag = PlayerPrefs.GetInt("select_skin_flag");
-            player_1._selectedCannon = PlayerPrefs.GetInt("select_skin_cannon");
-            player_1._selectedAnchor = PlayerPrefs.GetInt("select_skin_anchor");
-            player_1._selectedHelm = PlayerPrefs.GetInt("select_skin_helm");
+        totalMatchWin = PlayerPrefs.GetInt("totalWins");
+        totalMatchLost = PlayerPrefs.GetInt("totalLost");
+        TotalShotsFired = PlayerPrefs.GetInt("totalShotsFired");
+        FireShotsHit = PlayerPrefs.GetInt("fireShotsHit");
+        TotalShotsHit = PlayerPrefs.GetInt("totalShotsHit");
+        TotalShotsMiss = PlayerPrefs.GetInt("totalShotsMiss");
 
-            //quests and gifts
-            CheckForQuestsAndGifts();
+        //Player Bullets
+        LoadList("bullets", shop.bullets.data);
+
+        //skins
+        LoadList("ship_skins", shop.skins.Ships_Skins);
+        LoadList("sail_skins", shop.skins.Sail_Skins);
+        LoadList("flag_skins", shop.skins.Flag_Skins);
+        LoadList("cannon_skins", shop.skins.Cannon_Skins);
+        LoadList("anchor_skins", shop.skins.Anchors_Skins);
+        LoadList("helm_skins", shop.skins.Helm_Skins);
 
 
-            //power ups
-            Freez_count = PlayerPrefs.GetInt("freeze");
-            TinyShots_count = PlayerPrefs.GetInt("tinyShots");
-            Sheild_count = PlayerPrefs.GetInt("shield");
-            TinyShip_count = PlayerPrefs.GetInt("tinyShip");
+        //selected skins
+        player_1._selectedShip = PlayerPrefs.GetInt("select_skin_ship");
+        player_1._selectedSail = PlayerPrefs.GetInt("select_skin_sail");
+        player_1._selectedFlag = PlayerPrefs.GetInt("select_skin_flag");
+        player_1._selectedCannon = PlayerPrefs.GetInt("select_skin_cannon");
+        player_1._selectedAnchor = PlayerPrefs.GetInt("select_skin_anchor");
+        player_1._selectedHelm = PlayerPrefs.GetInt("select_skin_helm");
 
-            //tut
-            tut = PlayerPrefs.GetInt("tut");
+        //quests and gifts
+        CheckForQuestsAndGifts();
 
-            //Audio
-            MusicVolume = PlayerPrefs.GetFloat("music");
-            SoundVolume = PlayerPrefs.GetFloat("sound");
 
-            end = PlayerPrefs.GetInt("end");
-       
-        
+        //power ups
+        Freez_count = PlayerPrefs.GetInt("freeze");
+        TinyShots_count = PlayerPrefs.GetInt("tinyShots");
+        Sheild_count = PlayerPrefs.GetInt("shield");
+        TinyShip_count = PlayerPrefs.GetInt("tinyShip");
+
+        //tut
+        tut = PlayerPrefs.GetInt("tut");
+
+        //Audio
+        MusicVolume = PlayerPrefs.GetFloat("music");
+        SoundVolume = PlayerPrefs.GetFloat("sound");
+
+        end = PlayerPrefs.GetInt("end");
     }
 
     public void SetList(string key, List<int> list)

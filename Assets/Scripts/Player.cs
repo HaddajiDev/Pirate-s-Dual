@@ -160,6 +160,7 @@ public class Player : MonoBehaviour
                         shootBurst(swipeDirection, forceStrength);
                     }
                     GameManager.Instance.Burst_Uses--;
+                    GameManager.Instance.Burst_Limit--;
                     GameManager.Instance.SaveData("burstUses", GameManager.Instance.Burst_Uses);
                 }
                 else
@@ -226,6 +227,7 @@ public class Player : MonoBehaviour
         if (inFire && GameManager.Instance.Fire_Uses != 0)
         {
             GameManager.Instance.Fire_Uses--;
+            GameManager.Instance.Fire_Limit--;
             GameManager.Instance.SaveData("fireUses", GameManager.Instance.Fire_Uses);
         }
 

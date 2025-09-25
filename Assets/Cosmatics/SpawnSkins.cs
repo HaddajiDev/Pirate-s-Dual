@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnSkins : MonoBehaviour
 {
+    public static SpawnSkins instance;
     public Part part = new Part();
 
 
@@ -15,7 +17,13 @@ public class SpawnSkins : MonoBehaviour
     public AnchorCosmaticData anchorCosmatic;
 
     public GameObject SkinPrefab;
-    
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+
     void Start()
     {
         if (part == Part.ship)

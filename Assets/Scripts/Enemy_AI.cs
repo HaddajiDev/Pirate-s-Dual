@@ -65,6 +65,10 @@ public class Enemy_AI : MonoBehaviour
 
     int current_Usage_TinyShip;
 
+
+    private int FireLimit;
+    private int BurstLimit;
+
     public GameObject[] EnemyShots;
     private void Start()
     {
@@ -77,7 +81,7 @@ public class Enemy_AI : MonoBehaviour
         GameManager.Instance.phase = GameManager.GamePhase.EnemyShootPhase;
         GameManager.Instance.Check_PowerUps();
         getRandomBullet();
-        if (Can_Fire)
+        if (Can_Fire )
         {            
             Fire = Random.Range(0, 2) == 0 ? true : false;
         }
@@ -86,6 +90,11 @@ public class Enemy_AI : MonoBehaviour
         Canon.localRotation = Quaternion.Euler(shootPoint.rotation.x, shootPoint.rotation.y, angle);
 
         int Current_Burst = Random.Range(0, 3) == 0 ? Burst_Count : 1;
+        if (Current_Burst > 1 && BurstLimit <= 2)
+            BurstLimit--;
+        else
+            Current_Burst = 1;
+        
         for (int i = 0; i < Current_Burst; i++)
         {            
             GameObject bullet = Instantiate(BulletPrefab, shootPoint.position, shootPoint.rotation);
@@ -96,8 +105,14 @@ public class Enemy_AI : MonoBehaviour
             rb.AddTorque(2, ForceMode2D.Impulse);
             Bullet bull = bullet.GetComponent<Bullet>();
             bull.Damage = Random.Range(DamageMin, DamageMax + 1);
-            if (Fire)
+            if (Fire && FireLimit <= 2)
+            {
                 bull.inFire = true;
+                FireLimit--;
+            }
+            else
+                bull.inFire = false;
+            
             if (bull.GetComponent<Bullet>().type == Bullet.BulletType.Chicken && Fire)
             {
                 bull.GetComponent<SpriteRenderer>().sprite = GameManager.Instance.player_1.FriedChicken;

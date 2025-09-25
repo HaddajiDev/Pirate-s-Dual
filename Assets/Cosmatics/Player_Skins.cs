@@ -16,4 +16,13 @@ public class Player_Skins
     {
         list.Add(value);
     }
+
+    public bool Check_Skin(List<int> list, int value)
+    {
+        if (list.Contains(value))
+        {
+            return true;
+        }
+        return false;
+    }
 }

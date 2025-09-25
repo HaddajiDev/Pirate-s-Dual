@@ -1,6 +1,8 @@
 using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
+
 
 public class Ship : MonoBehaviour
 {
@@ -27,6 +29,17 @@ public class Ship : MonoBehaviour
     public Transform Destroy_Point;
 
     public bool Floating = true;
+
+
+    private Dictionary<int, Vector2> iconsWidth = new Dictionary<int, Vector2>()
+    {
+        [1] = new Vector2(200, 75),
+        [2] = new Vector2(140, 75),
+        [3] = new Vector2(85, 75),
+        [4] = new Vector2(85, 116),
+        [5] = new Vector2(70, 140),
+        [6] = new Vector2(100, 100),
+    };
 
 
     private void Awake()
@@ -163,7 +176,7 @@ public class Ship : MonoBehaviour
                 if (player)
                 {
                     UI_Controller.instance.Getting_Ready_Object.gameObject.SetActive(false);
-                    Invoke(nameof(Win_Obj_Lose), 3);
+                    Invoke(nameof(Win_Obj_Lose), 3); // player lose
                     GameObject DestroyedShip = Instantiate(Destroyed_Ship, Destroy_Point.position, Quaternion.identity);
                     Destroy_Effect fo = DestroyedShip.GetComponent<Destroy_Effect>();
                     fo.Ship = true;
@@ -177,7 +190,7 @@ public class Ship : MonoBehaviour
                 }
                 else
                 {
-                    Invoke(nameof(Win_Obj_Win), 3);
+                    Invoke(nameof(Win_Obj_Win), 3); // player win
                     GameObject DestroyedShip = Instantiate(Destroyed_Ship, Destroy_Point.position, Quaternion.identity);
                     DestroyedShip.transform.localScale = new Vector3(-1, 1, 0);
                     Destroy_Effect fo = DestroyedShip.GetComponent<Destroy_Effect>();
@@ -188,7 +201,7 @@ public class Ship : MonoBehaviour
                 GameManager.Instance.PlayAudio(GameManager.Instance.Soundeffects.ShipCrash);
             }
         }
-        else
+        else // Enemy
         {
             Current_Health -= Damage;
             HealthBar_Enemy.DOFade(1, 0.5f);
@@ -200,7 +213,7 @@ public class Ship : MonoBehaviour
                 if (player)
                 {
                     UI_Controller.instance.Getting_Ready_Object.gameObject.SetActive(false);
-                    Invoke(nameof(Win_Obj_Lose), 3);
+                    Invoke(nameof(Win_Obj_Lose), 3); // player lose
                     GameObject DestroyedShip = Instantiate(Destroyed_Ship, Destroy_Point.position, Quaternion.identity);
                     Destroy_Effect fo = DestroyedShip.GetComponent<Destroy_Effect>();
                     fo.Ship = true;
@@ -209,7 +222,7 @@ public class Ship : MonoBehaviour
                 }
                 else
                 {
-                    Invoke(nameof(Win_Obj_Win), 3);
+                    Invoke(nameof(Win_Obj_Win), 3); // player win
                     GameObject DestroyedShip = Instantiate(Destroyed_Ship, Destroy_Point.position, Quaternion.identity);
                     DestroyedShip.transform.localScale = new Vector3(-1, 1, 0);
                     Destroy_Effect fo = DestroyedShip.GetComponent<Destroy_Effect>();
@@ -228,6 +241,35 @@ public class Ship : MonoBehaviour
     {
         UI_Controller.instance.Win_Tigger(1, "You Win");
         GameManager.Instance.phase = GameManager.GamePhase.GameOver;
+        (int, int, Cost) rewards = GameManager.Instance.DropRewards(); // (part, index, cost)
+        if (rewards.Item1 != 0 && rewards.Item2 != 0)
+        {
+            UI_Controller.instance.RewardContainer.SetActive(true);
+            if (rewards.Item3 == null)
+            {
+                UI_Controller.instance.skinRewardObj.SetActive(true);
+                UI_Controller.instance.RewardObjCoin.SetActive(false);
+                UI_Controller.instance.reward_icon.sprite = GameManager.Instance.GetIconSkin(rewards.Item1, rewards.Item2);
+                
+                RectTransform rt = UI_Controller.instance.reward_icon.GetComponent<RectTransform>();
+                if (rewards.Item1 == 1) rt.sizeDelta = iconsWidth[1];
+                else if (rewards.Item1 == 2) rt.sizeDelta = iconsWidth[2];
+                else if (rewards.Item1 == 3) rt.sizeDelta = iconsWidth[3];
+                else if (rewards.Item1 == 4) rt.sizeDelta = iconsWidth[4];
+                else if (rewards.Item1 == 5) rt.sizeDelta = iconsWidth[5];
+                else if (rewards.Item1 == 6) rt.sizeDelta = iconsWidth[6];
+            }
+            else
+            {
+                UI_Controller.instance.skinRewardObj.SetActive(false);
+                UI_Controller.instance.RewardObjCoin.SetActive(true);
+                UI_Controller.instance.Coinsreward.text = rewards.Item3.Coins.ToString();
+            }
+        }
+        else
+        {
+            UI_Controller.instance.RewardContainer.SetActive(false);
+        }
 
         //some gems
         int value = Random.Range(0, 3) == 2 ? Random.Range(3, 21) : 0;
@@ -387,7 +429,7 @@ public class Ship : MonoBehaviour
         Current_Health = Health;
     }
 
-    void Get_Enemy_Health()
+    void Get_Enemy_Health() // get Player Health Stat (in multiplayer)
     {
         Enemy_AI enemy = GetComponent<Enemy_AI>();
         Level lvl = enemy.levels.Get_Level(GameManager.Instance.Current_Level);
@@ -395,3 +437,4 @@ public class Ship : MonoBehaviour
         Current_Health = Health;
     }
 }
+

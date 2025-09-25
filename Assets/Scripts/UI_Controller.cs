@@ -68,6 +68,8 @@ public class UI_Controller : MonoBehaviour
     public TMP_Text Health_Cost_Upgrade_Diamond;
     public TMP_Text Force_Cost_Upgrade_Coins;    
     public TMP_Text Force_Cost_Upgrade__Diamond;
+    public TMP_Text Power_Cost_Upgrade_Coins;
+    public TMP_Text Power_Cost_Upgrade_Diamond;
     public TMP_Text Diammind_Win;
     public TMP_Text Freeze_Count;
     public TMP_Text Freeze_Cost_Coins;
@@ -116,6 +118,13 @@ public class UI_Controller : MonoBehaviour
     public GameObject QuestNotification;
     public GameObject GiftsNotification;
     public GameObject DiammondWinObj;
+
+    [Header("Rewards")]
+    public GameObject RewardContainer;
+    public GameObject skinRewardObj;
+    public GameObject RewardObjCoin;
+    public TMP_Text Coinsreward;
+    public Image reward_icon;
     
     
 
