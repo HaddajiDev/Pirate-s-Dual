@@ -10,6 +10,8 @@ public class GameMode
         Classic,
         Competitive,
         Tournament,
+        SpecialTournament,
+        lobbies
     }
     
     public ModeType type;

@@ -186,6 +186,8 @@ public class Enemy_AI : MonoBehaviour
         GetHelm_skin(lvl.helm);
         GetCannon_skin(lvl.cannon);
         GetAnchor_skin(lvl.anchor);
+        
+        // idk what im doing
     }
 
     private void OpenSheild()

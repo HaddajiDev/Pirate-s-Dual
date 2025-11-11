@@ -1,0 +1,308 @@
+{
+    "bullets": [
+        {
+            "Name": "Default",
+            "sr": {
+                "instanceID": 50656
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50836
+            },
+            "Damage": 1,
+            "Limit": 0,
+            "cost": {
+                "Coins": 0,
+                "Diamond": 0
+            },
+            "ad": false
+        },
+        {
+            "Name": "Black Tide",
+            "sr": {
+                "instanceID": 51220
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50982
+            },
+            "Damage": 2,
+            "Limit": 4,
+            "cost": {
+                "Coins": 1200,
+                "Diamond": 35
+            },
+            "ad": false
+        },
+        {
+            "Name": "BaseBall",
+            "sr": {
+                "instanceID": 51222
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50960
+            },
+            "Damage": 3,
+            "Limit": 5,
+            "cost": {
+                "Coins": 2000,
+                "Diamond": 40
+            },
+            "ad": false
+        },
+        {
+            "Name": "Fuse Bomb",
+            "sr": {
+                "instanceID": 51224
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50964
+            },
+            "Damage": 4,
+            "Limit": 3,
+            "cost": {
+                "Coins": 3000,
+                "Diamond": 50
+            },
+            "ad": false
+        },
+        {
+            "Name": "Football",
+            "sr": {
+                "instanceID": 51226
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50974
+            },
+            "Damage": 4,
+            "Limit": 5,
+            "cost": {
+                "Coins": 3500,
+                "Diamond": 50
+            },
+            "ad": false
+        },
+        {
+            "Name": "Bomb",
+            "sr": {
+                "instanceID": 50846
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50966
+            },
+            "Damage": 5,
+            "Limit": 5,
+            "cost": {
+                "Coins": 5000,
+                "Diamond": 65
+            },
+            "ad": false
+        },
+        {
+            "Name": "Basketball",
+            "sr": {
+                "instanceID": 51228
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50962
+            },
+            "Damage": 5,
+            "Limit": 7,
+            "cost": {
+                "Coins": 6500,
+                "Diamond": 70
+            },
+            "ad": false
+        },
+        {
+            "Name": "Skullshot",
+            "sr": {
+                "instanceID": 51230
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50984
+            },
+            "Damage": 5,
+            "Limit": 9,
+            "cost": {
+                "Coins": 7500,
+                "Diamond": 75
+            },
+            "ad": false
+        },
+        {
+            "Name": "Brain",
+            "sr": {
+                "instanceID": 51232
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50968
+            },
+            "Damage": 6,
+            "Limit": 3,
+            "cost": {
+                "Coins": 9500,
+                "Diamond": 80
+            },
+            "ad": false
+        },
+        {
+            "Name": "Kiwi",
+            "sr": {
+                "instanceID": 51234
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50976
+            },
+            "Damage": 7,
+            "Limit": 3,
+            "cost": {
+                "Coins": 11500,
+                "Diamond": 90
+            },
+            "ad": false
+        },
+        {
+            "Name": "Skull",
+            "sr": {
+                "instanceID": 51236
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50986
+            },
+            "Damage": 8,
+            "Limit": 5,
+            "cost": {
+                "Coins": 13500,
+                "Diamond": 100
+            },
+            "ad": false
+        },
+        {
+            "Name": "Banana",
+            "sr": {
+                "instanceID": 51238
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50958
+            },
+            "Damage": 9,
+            "Limit": 7,
+            "cost": {
+                "Coins": 15500,
+                "Diamond": 110
+            },
+            "ad": false
+        },
+        {
+            "Name": "Chicken",
+            "sr": {
+                "instanceID": 51240
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50970
+            },
+            "Damage": 10,
+            "Limit": 7,
+            "cost": {
+                "Coins": 20000,
+                "Diamond": 200
+            },
+            "ad": false
+        },
+        {
+            "Name": "Blaze Totem",
+            "sr": {
+                "instanceID": 51242
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50988
+            },
+            "Damage": 12,
+            "Limit": 5,
+            "cost": {
+                "Coins": 21000,
+                "Diamond": 250
+            },
+            "ad": false
+        },
+        {
+            "Name": "FireFang Totem",
+            "sr": {
+                "instanceID": 51244
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50990
+            },
+            "Damage": 15,
+            "Limit": 5,
+            "cost": {
+                "Coins": 25000,
+                "Diamond": 300
+            },
+            "ad": false
+        },
+        {
+            "Name": "Golden Skull",
+            "sr": {
+                "instanceID": 51246
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50992
+            },
+            "Damage": 20,
+            "Limit": 5,
+            "cost": {
+                "Coins": 30000,
+                "Diamond": 350
+            },
+            "ad": false
+        },
+        {
+            "Name": "Panda",
+            "sr": {
+                "instanceID": 51248
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50980
+            },
+            "Damage": 3,
+            "Limit": 3,
+            "cost": {
+                "Coins": 1,
+                "Diamond": 1
+            },
+            "ad": false
+        },
+        {
+            "Name": "Clown",
+            "sr": {
+                "instanceID": 51250
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50972
+            },
+            "Damage": 3,
+            "Limit": 3,
+            "cost": {
+                "Coins": 1,
+                "Diamond": 1
+            },
+            "ad": false
+        },
+        {
+            "Name": "Monster",
+            "sr": {
+                "instanceID": 51252
+            },
+            "Bullet_Prefab": {
+                "instanceID": 50978
+            },
+            "Damage": 3,
+            "Limit": 3,
+            "cost": {
+                "Coins": 1,
+                "Diamond": 1
+            },
+            "ad": false
+        }
+    ]
+}

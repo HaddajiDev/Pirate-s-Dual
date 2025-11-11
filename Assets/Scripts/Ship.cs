@@ -23,8 +23,8 @@ public class Ship : MonoBehaviour
 
     Animator anim;
 
-    public CanvasGroup HealthBar_Player;
-    public CanvasGroup HealthBar_Enemy;
+    public CanvasGroup HealthBar;
+    
     public GameObject Destroyed_Ship;
     public Transform Destroy_Point;
 
@@ -63,18 +63,9 @@ public class Ship : MonoBehaviour
         else
             Get_Enemy_Health();
 
-        if (player)
-        {
-            Slider slider = HealthBar_Player.GetComponentInChildren<Slider>();
-            slider.maxValue = Current_Health;
-            slider.value = Current_Health;
-        }
-        else
-        {
-            Slider slider = HealthBar_Enemy.GetComponentInChildren<Slider>();
-            slider.maxValue = Current_Health;
-            slider.value = Current_Health;
-        }
+        Slider slider = HealthBar.GetComponentInChildren<Slider>();
+        slider.maxValue = Current_Health;
+        slider.value = Current_Health;
     }
     
     void Update()
@@ -166,8 +157,8 @@ public class Ship : MonoBehaviour
         if (player)
         {
             Current_Health -= Damage;
-            HealthBar_Player.DOFade(1, 0.5f);
-            Slider slider = HealthBar_Player.GetComponentInChildren<Slider>();
+            HealthBar.DOFade(1, 0.5f);
+            Slider slider = HealthBar.GetComponentInChildren<Slider>();
             slider.value = Current_Health;
             
             if (Current_Health <= 0)
@@ -204,8 +195,8 @@ public class Ship : MonoBehaviour
         else // Enemy
         {
             Current_Health -= Damage;
-            HealthBar_Enemy.DOFade(1, 0.5f);
-            Slider slider = HealthBar_Enemy.GetComponentInChildren<Slider>();
+            HealthBar.DOFade(1, 0.5f);
+            Slider slider = HealthBar.GetComponentInChildren<Slider>();
             slider.value = Current_Health;
             if (Current_Health <= 0)
             {
@@ -403,14 +394,7 @@ public class Ship : MonoBehaviour
 
     void Health_Bar_Out()
     {
-        if (player)
-        {
-            HealthBar_Player.DOFade(0, 0.5f);
-        }
-        else
-        {
-            HealthBar_Enemy.DOFade(0, 0.5f);
-        }
+        HealthBar.DOFade(0, 0.5f);
     }
 
     public void Move()

@@ -8,6 +8,8 @@ using System.Linq;
 using System;
 using System.Collections;
 using UnityEngine.UI;
+
+using System.IO;
 using Random = Unity.Mathematics.Random;
 
 ///<summary>
@@ -172,7 +174,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ShowTut();        
-        phase = GamePhase.MainMenu;        
+        phase = GamePhase.MainMenu;
+    }
+
+    public void ExportToJson(ScriptableObject ob)
+    {
+        string json = JsonUtility.ToJson(ob, true);
+        File.WriteAllText(Application.dataPath + "/AllLevels.json", json);
+        Debug.Log(Application.dataPath);
     }
 
     private void Update()
